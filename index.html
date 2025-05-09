@@ -2,9 +2,10 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mon Site</title>
   <style>
+    /* Réinitialisation des marges et paddings */
     * {
       margin: 0;
       padding: 0;
@@ -18,6 +19,7 @@
       overflow: hidden;
     }
 
+    /* Vidéo en arrière-plan */
     video {
       position: fixed;
       top: 0;
@@ -28,13 +30,14 @@
       z-index: -1;
     }
 
+    /* Contenu superposé (texte) */
     .overlay {
       position: absolute;
       top: 0;
       left: 0;
       height: 100%;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.4); /* Surcouche sombre */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -44,7 +47,7 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3rem; /* Taille pour desktop */
       margin-bottom: 1rem;
     }
 
@@ -52,6 +55,23 @@
       font-size: 1.2rem;
       max-width: 600px;
       line-height: 1.6;
+    }
+
+    /* Media Query pour les petits écrans */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem; /* Réduire la taille du titre sur mobile */
+      }
+
+      p {
+        font-size: 1rem; /* Réduire la taille du texte sur mobile */
+        padding: 0 1rem; /* Ajouter un peu de padding pour la lisibilité */
+      }
+
+      /* Fixe la vidéo pour mobile, éviter que l'image de fond soit tronquée */
+      video {
+        object-position: center center;
+      }
     }
   </style>
 </head>
@@ -65,9 +85,9 @@
 
   <!-- Contenu superposé -->
   <div class="overlay">
-    <h1>La plus petite parcelle de réalité observée pèse aussi lourd que le reste du monde</h1>
+    <h1>Lorem Ipsum</h1>
     <p>
-        - Walter Benjamin
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
     </p>
   </div>
 
