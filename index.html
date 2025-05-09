@@ -39,13 +39,13 @@
 
     /* Image de remplacement */
     .video-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       position: absolute;
       top: 0;
       left: 0;
-      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1; /* S'assurer que l'image est derrière le contenu */
     }
 
     /* Contenu superposé (texte) */
@@ -97,7 +97,7 @@
       Votre navigateur ne peut pas lire cette vidéo.
     </video>
     <!-- Fallback image (image de remplacement si la vidéo ne charge pas) -->
-    <img src="image-de-remplacement.jpg" alt="Image de remplacement" />
+    <img src="image-de-remplacement.jpg" />
   </div>
 
   <!-- Contenu superposé -->
