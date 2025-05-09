@@ -30,17 +30,22 @@
       z-index: -1;
     }
 
-    /* Image de remplacement au cas où la vidéo ne charge pas */
+    /* Conteneur pour la vidéo avec image de remplacement */
     .video-container {
       position: relative;
       width: 100%;
       height: 100vh;
     }
 
+    /* Image de remplacement */
     .video-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     /* Contenu superposé (texte) */
@@ -97,9 +102,9 @@
 
   <!-- Contenu superposé -->
   <div class="overlay">
-    <h1></h1>
+    <h1>François Maltais</h1>
     <p>
-        "La plus petite parcelle de réalité observée pèse aussi lourd que le reste du monde" (Walter Benjamin)
+      Carnet de recherche
     </p>
   </div>
 
