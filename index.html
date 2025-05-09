@@ -3,83 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bienvenue - Frama</title>
+  <title>Accueil - [Ton Nom]</title>
   <style>
-    /* Généralités */
+    /* Global Styles */
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f4f8;
+      font-family: 'Georgia', serif;
+      background-color: #f5f5f5; /* Couleur de fond claire */
       color: #333;
       margin: 0;
       padding: 0;
       text-align: center;
     }
 
+    /* En-tête */
     header {
-      background-color: #007BFF; /* Couleur de fond bleue */
+      background-color: #2C3E50; /* Gris foncé */
       color: white;
-      padding: 3rem 0;
-      border-bottom: 5px solid #0056b3; /* Bordure subtile */
+      padding: 4rem 2rem;
+      border-bottom: 1px solid #BDC3C7;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 0;
     }
 
     header p {
       font-size: 1.2rem;
+      font-weight: 300;
+      margin-top: 1rem;
     }
 
-    img {
+    header img {
       width: 150px;
       border-radius: 50%;
-      margin-top: 1rem;
-      border: 5px solid white; /* Bordure de l'image */
+      border: 3px solid white;
+      margin-top: 2rem;
     }
 
     /* Sections principales */
-    main {
-      padding: 3rem 1.5rem;
-      background-color: #ffffff;
+    section {
+      padding: 4rem 2rem;
     }
 
     h2 {
-      font-size: 2rem;
-      color: #007BFF;
+      font-size: 2.5rem;
+      color: #2C3E50;
       margin-bottom: 1rem;
     }
 
     p {
       font-size: 1.1rem;
-      line-height: 1.6;
       color: #555;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto 2rem;
     }
 
-    /* Ajouter des boutons stylisés */
+    /* Liens */
     .btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      margin-top: 1.5rem;
-      background-color: #28a745;
+      padding: 10px 25px;
+      background-color: #3498DB;
       color: white;
       text-decoration: none;
       font-size: 1rem;
       border-radius: 30px;
-      transition: background-color 0.3s ease, transform 0.2s;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .btn:hover {
-      background-color: #218838;
+      background-color: #2980B9;
       transform: scale(1.05);
+    }
+
+    /* Section image */
+    .image-section {
+      background-color: #fff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     /* Footer */
     footer {
-      background-color: #f8f9fa;
-      padding: 2rem 0;
-      color: #777;
-      font-size: 0.9rem;
+      background-color: #2C3E50;
+      color: white;
+      padding: 2rem;
+      font-size: 1rem;
     }
 
   </style>
@@ -88,28 +105,39 @@
 
   <!-- En-tête -->
   <header>
-    <h1>Bienvenue sur le site de Frama</h1>
-    <p>Un site simple, créé avec GitHub Pages et Git</p>
-    <img src="https://via.placeholder.com/150" alt="Ma photo ou logo">
+    <h1>[Ton Nom]</h1>
+    <p>Écrivain | Photographe | Cinéaste</p>
+    <img src="https://via.placeholder.com/150" alt="Ma photo">
   </header>
 
-  <!-- Section principale -->
-  <main>
+  <!-- Section : À propos -->
+  <section>
     <h2>À propos de moi</h2>
-    <p>Je m'appelle Frama, un passionné de technologie et de développement web. J'ai créé ce site pour partager mes projets, ma passion pour la programmation et mon parcours.</p>
-    <p>Sur ce site, tu trouveras des informations à propos de mes compétences et de mes projets en cours.</p>
-    
-    <!-- Bouton vers une page ou un projet -->
-    <a href="#" class="btn">Voir mon projet</a>
-  </main>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor sapien eget turpis suscipit, eget bibendum erat euismod. Nullam aliquet bibendum eros, ac fringilla ipsum efficitur vel. Curabitur sit amet nisi ut libero eleifend pretium. Etiam suscipit venenatis odio a convallis.
+    </p>
+  </section>
+
+  <!-- Section : Mon travail -->
+  <section>
+    <h2>Mon travail</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet malesuada libero, at tempus nisi iaculis id. Curabitur vel suscipit turpis. Sed sollicitudin vestibulum metus at aliquam. Vivamus tempus quam ut ex aliquet, in vehicula enim tincidunt. Donec tincidunt purus nisi, eu cursus libero pharetra a.
+    </p>
+    <a href="#portfolio" class="btn">Voir mon portfolio</a>
+  </section>
+
+  <!-- Section : Image/Portfolio -->
+  <section class="image-section" id="portfolio">
+    <h2>Mon Portfolio</h2>
+    <img src="https://via.placeholder.com/1200x800" alt="Exemple de photographie" />
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ante ac leo dictum fringilla. Quisque suscipit leo sit amet orci aliquam, sed vulputate velit condimentum.</p>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 - Frama | Site créé avec ❤️ et GitHub Pages</p>
+    <p>© 2025 - [Ton Nom] | Site créé avec ❤️ et GitHub Pages</p>
   </footer>
 
 </body>
 </html>
-
-
- 
