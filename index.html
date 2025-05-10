@@ -10,9 +10,10 @@
       padding: 0;
       box-sizing: border-box;
     }
-    body, html {
+
+    html, body {
       height: 100%;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
     }
 
     header {
@@ -36,11 +37,17 @@
     .menu-toggle {
       display: none;
       cursor: pointer;
+      font-size: 1rem;
     }
 
     nav {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
+      padding: 0.5rem 1rem;
+      position: absolute;
+      top: 3.5rem;
+      left: 1rem;
     }
 
     nav a {
@@ -62,30 +69,33 @@
     .content {
       position: relative;
       z-index: 1;
-      padding: 100vh 2rem 2rem; /* commence après la vidéo plein écran */
+      padding: 100vh 2rem 2rem;
       background-color: white;
       color: black;
     }
 
-    /* Mobile adjustments */
+    /* Responsive Mobile */
     @media (max-width: 768px) {
       nav {
         display: none;
+        flex-direction: column;
+        background-color: rgba(0,0,0,0.85);
+        right: 1rem;
+        left: auto;
+        top: 3rem;
       }
 
       .menu-toggle {
-        display: inline-block;
-        font-size: 1rem;
+        display: block;
       }
 
-      .menu-open nav {
+      body.menu-open nav {
         display: flex;
-        flex-direction: column;
-        background: rgba(0,0,0,0.8);
         position: absolute;
-        top: 3rem;
-        right: 1rem;
-        padding: 1rem;
+      }
+
+      .brand {
+        font-size: 1rem;
       }
     }
   </style>
@@ -107,9 +117,10 @@
     </nav>
   </header>
 
-  <video id="background-video" class="video-background" autoplay muted loop playsinline poster="poster.jpg">
-    <source src="" type="video/mp4">
-    Votre navigateur ne supporte pas les vidéos HTML5.
+  <!-- Vidéo fixe avec image de remplacement -->
+  <video class="video-background" autoplay muted loop playsinline poster="poster.jpg">
+    <source src="video1.mp4" type="video/mp4" />
+    Votre navigateur ne supporte pas la vidéo HTML5.
   </video>
 
   <div class="content">
@@ -125,21 +136,7 @@
       <h2>Films</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </section>
-    <!-- Ajoute d'autres sections si besoin -->
+    <!-- Ajoute d'autres sections ici -->
   </div>
-
-  <script>
-    // Liste des vidéos disponibles
-    const videos = ["video1.mp4", "video2.mp4"];
-
-    // Choisir une vidéo au hasard
-    const selectedVideo = videos[Math.floor(Math.random() * videos.length)];
-
-    // Mettre à jour la source vidéo
-    const videoElement = document.getElementById("background-video");
-    const sourceElement = videoElement.querySelector("source");
-    sourceElement.src = selectedVideo;
-    videoElement.load();
-  </script>
 </body>
 </html>
