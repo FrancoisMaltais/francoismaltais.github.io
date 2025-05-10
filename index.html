@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Accueil</title>
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: Georgia, serif;
       height: 100%;
       background: black;
       color: white;
-      font-family: Georgia, serif;
     }
 
     .hero {
@@ -51,16 +55,14 @@
     .site-title {
       font-size: 1.5rem;
       font-weight: bold;
-      white-space: nowrap;
     }
 
     .menu-desktop {
-      display: flex;
-      flex-direction: column;
       margin-top: 1rem;
     }
 
     .menu-desktop a {
+      display: block;
       color: white;
       text-decoration: none;
       margin: 0.2rem 0;
@@ -102,9 +104,14 @@
       margin: 4px 0;
     }
 
+    .menu-label {
+      font-size: 1rem;
+      color: white;
+    }
+
     @media (max-width: 768px) {
       .site-title {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
       }
 
       .menu-desktop {
@@ -114,27 +121,21 @@
       .hamburger-wrapper {
         display: flex;
       }
-
-      .menu-label {
-        font-size: 1rem;
-        color: white;
-      }
     }
   </style>
 </head>
 <body>
 
   <section class="hero">
-    <!-- Vidéo plein écran sans image de remplacement -->
+    <!-- Vidéo plein écran -->
     <video autoplay muted loop playsinline>
       <source src="video2.mp4" type="video/mp4" />
-      Votre navigateur ne supporte pas la vidéo HTML5.
+      Votre navigateur ne peut pas lire la vidéo.
     </video>
 
     <div class="overlay">
       <div class="top-bar">
-        <div class="site-title">Ton Nom</div>
-
+        <div class="site-title">François Maltais</div>
         <!-- Menu mobile -->
         <div class="hamburger-wrapper">
           <div class="menu-label">Menu</div>
@@ -146,7 +147,7 @@
         </div>
       </div>
 
-      <!-- Menu desktop -->
+      <!-- Menu desktop (visible sur grands écrans) -->
       <div class="menu-desktop">
         <a href="#">Biographie</a>
         <a href="#">Agenda</a>
@@ -159,7 +160,7 @@
         <a href="#">Communications</a>
       </div>
 
-      <!-- Menu mobile -->
+      <!-- Menu mobile (affiché quand l'utilisateur clique sur le hamburger) -->
       <div class="menu-mobile" id="mobileMenu">
         <a href="#">Biographie</a>
         <a href="#">Agenda</a>
@@ -177,7 +178,7 @@
   <script>
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
     }
   </script>
 
