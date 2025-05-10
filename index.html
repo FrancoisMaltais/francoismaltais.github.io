@@ -56,6 +56,7 @@
     .site-title {
       font-size: 1.5rem;
       font-weight: bold;
+      white-space: nowrap;
     }
 
     .menu-desktop {
@@ -73,6 +74,19 @@
     /* Menu mobile */
     .menu-mobile {
       display: none;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      z-index: 10;
+    }
+
+    .menu-mobile a {
+      display: block;
+      color: white;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
     }
 
     .hamburger {
@@ -90,26 +104,12 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+      .site-title {
+        font-size: 1.1rem;
+      }
+
       .menu-desktop {
         display: none;
-      }
-
-      .menu-mobile {
-        display: block;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 1rem;
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        z-index: 10;
-      }
-
-      .menu-mobile a {
-        display: block;
-        color: white;
-        margin-bottom: 0.5rem;
-        text-decoration: none;
       }
 
       .hamburger {
@@ -121,23 +121,17 @@
 <body>
 
   <section class="hero">
-    <!-- Vidéo en fond -->
-    <video id="backgroundVideo" autoplay muted loop playsinline>
-      <source id="videoSource" src="video1.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
+    <!-- Vidéo de fond -->
+    <video id="backgroundVideo" autoplay muted loop playsinline></video>
 
-    <!-- Superposition du contenu -->
+    <!-- Superposition -->
     <div class="overlay">
       <div class="top-bar">
         <div class="site-title">François Maltais</div>
-        <div class="right-menu">
-          <span style="margin-right: 0.5rem;">Menu</span>
-          <div class="hamburger" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+        <div class="hamburger" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
 
@@ -170,15 +164,21 @@
   </section>
 
   <script>
-    // Liste de vidéos possibles
-    const videos = ['video1.mp4', 'video2.mp4']; // Mets ici tes fichiers
+    // Vidéos disponibles
+    const videos = ['video1.mp4', 'video2.mp4'];
 
-    // Choisir une vidéo aléatoire
-    const chosenVideo = videos[Math.floor(Math.random() * videos.length)];
-    document.getElementById('videoSource').src = chosenVideo;
-    document.getElementById('backgroundVideo').load();
+    // Sélection aléatoire
+    window.addEventListener("DOMContentLoaded", () => {
+      const chosen = videos[Math.floor(Math.random() * videos.length)];
+      const video = document.getElementById('backgroundVideo');
+      const source = document.createElement('source');
+      source.src = chosen;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      video.load();
+    });
 
-    // Fonction menu mobile
+    // Toggle menu mobile
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -187,4 +187,3 @@
 
 </body>
 </html>
-
