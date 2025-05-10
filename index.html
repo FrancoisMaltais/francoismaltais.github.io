@@ -14,8 +14,8 @@
     body, html {
       font-family: Georgia, serif;
       height: 100%;
-      color: white;
       background: black;
+      color: white;
     }
 
     .hero {
@@ -46,7 +46,6 @@
       justify-content: space-between;
     }
 
-    /* Barre du haut */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -71,7 +70,6 @@
       margin: 0.2rem 0;
     }
 
-    /* Menu mobile */
     .menu-mobile {
       display: none;
       background: rgba(0, 0, 0, 0.9);
@@ -89,8 +87,14 @@
       text-decoration: none;
     }
 
-    .hamburger {
+    .hamburger-wrapper {
       display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hamburger {
+      display: block;
       cursor: pointer;
     }
 
@@ -102,7 +106,6 @@
       margin: 4px 0;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .site-title {
         font-size: 1.1rem;
@@ -112,8 +115,13 @@
         display: none;
       }
 
-      .hamburger {
-        display: block;
+      .hamburger-wrapper {
+        display: flex;
+      }
+
+      .menu-label {
+        font-size: 1rem;
+        color: white;
       }
     }
   </style>
@@ -121,17 +129,21 @@
 <body>
 
   <section class="hero">
-    <!-- Vidéo de fond -->
+    <!-- Vidéo plein écran -->
     <video id="backgroundVideo" autoplay muted loop playsinline></video>
 
-    <!-- Superposition -->
     <div class="overlay">
       <div class="top-bar">
         <div class="site-title">François Maltais</div>
-        <div class="hamburger" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+
+        <!-- Menu mobile uniquement -->
+        <div class="hamburger-wrapper">
+          <div class="menu-label">Menu</div>
+          <div class="hamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
 
@@ -164,21 +176,16 @@
   </section>
 
   <script>
-    // Vidéos disponibles
-    const videos = ['video1.mp4', 'video2.mp4'];
-
-    // Sélection aléatoire
+    // Vidéo aléatoire
     window.addEventListener("DOMContentLoaded", () => {
+      const videos = ['video1.mp4', 'video2.mp4'];
       const chosen = videos[Math.floor(Math.random() * videos.length)];
       const video = document.getElementById('backgroundVideo');
-      const source = document.createElement('source');
-      source.src = chosen;
-      source.type = "video/mp4";
-      video.appendChild(source);
+      video.setAttribute('src', chosen);
       video.load();
     });
 
-    // Toggle menu mobile
+    // Menu mobile
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
