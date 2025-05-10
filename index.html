@@ -179,19 +179,6 @@
   </section>
 
   <script>
-    // Choisir une vidéo aléatoire
-    window.addEventListener("DOMContentLoaded", () => {
-      const videos = ['video1.mp4', 'video2.mp4'];
-      const chosen = videos[Math.floor(Math.random() * videos.length)];
-      
-      // Attendre que la vidéo soit complètement chargée
-      const videoElement = document.getElementById('backgroundVideo');
-      if (videoElement) {
-        videoElement.querySelector('source').setAttribute('src', chosen);
-        videoElement.load();
-      }
-    });
-
     // Menu mobile toggle
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
