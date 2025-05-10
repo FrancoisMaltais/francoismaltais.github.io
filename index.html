@@ -3,50 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test Vidéo</title>
+  <title>Ton Nom</title>
   <style>
-    body, html {
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
+      box-sizing: border-box;
     }
-    video {
-      width: 100%;
+
+    html, body {
       height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Vidéo de fond */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: 0;
       object-fit: cover;
+    }
+
+    /* En-tête */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      color: white;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    /* Contenu texte sous la vidéo */
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 100vh 2rem 2rem; /* Commence après la hauteur de la vidéo */
+      background-color: white;
+      color: black;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 3.5rem;
+        right: 1rem;
+        padding: 1rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      body.menu-open nav {
+        display: flex;
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop playsinline poster="poster.jpg">
+  <!-- Vidéo de fond -->
+  <video class="video-background" autoplay muted loop playsinline poster="poster.jpg">
     <source src="video1.mp4" type="video/mp4" />
     Votre navigateur ne supporte pas la vidéo HTML5.
   </video>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test Vidéo</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
-</head>
-<body>
-  <video autoplay muted loop playsinline poster="poster.jpg">
-    <source src="video1.mp4" type="video/mp4" />
-    Votre navigateur ne supporte pas la vidéo HTML5.
-  </video>
+
+  <!-- En-tête avec menu -->
+  <header>
+    <div class="brand">Ton Nom</div>
+    <div class="menu-toggle" onclick="document.body.classList.toggle('menu-open')">Menu ☰</div>
+    <nav>
+      <a href="#biographie">Biographie</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#chronique">Chronique</a>
+      <a href="#reportages">Reportages</a>
+      <a href="#fragments">Fragments</a>
+      <a href="#photographies">Photographies</a>
+      <a href="#films">Films</a>
+      <a href="#publications">Publications</a>
+      <a href="#communications">Communications</a>
+    </nav>
+  </header>
+
+  <!-- Contenu défilant -->
+  <div class="content">
+    <section id="biographie">
+      <h2>Biographie</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non purus ut nunc tincidunt gravida.</p>
+    </section>
+    <section id="agenda">
+      <h2>Agenda</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non purus ut nunc tincidunt gravida.</p>
+    </section>
+  </div>
 </body>
 </html>
